@@ -58,9 +58,18 @@
             hide() 方法, 隐藏
             toggle() 方法, 切换显示与隐藏
         2、淡入、淡出、切换
+            fadeOut() 方法, 淡出(消失)
+            fadeIn() 方法, 淡入(显示)
+            fadeToggle() 淡出淡出切换
+            fadeTo()    变换透明度
 
-        3、
+        3、滑入、滑出、切换、
+            slideDown() 方法, 滑出(消失)
+            slideUp() 方法, 滑入(显示)
+            slideToggle() 方法, 滑入滑出切换
 
-        4、
+        4、animate 以及动画停止 stop()
+            $('.box4').animate( {width: '200px', height: '200px', top: '200px', left: '200px'}, 'slow');
+
     4. jQuery 操作dom遍历dom
     
