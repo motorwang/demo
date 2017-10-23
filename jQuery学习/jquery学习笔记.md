@@ -1,10 +1,10 @@
 第一天：
-一、定义
+###定义
     1、严格的来讲jquery是javascript库,不是js框架
     2、它是轻量级的 “写的少，做的多的js库”;
     3、jquery-1.0版本发行的时间是2006年1月,目前最新的版本是3.2.1
 
-二、jQuery的功能：
+###二、jQuery的功能：
     1、html元素选取；
     2、html元素操作；
     3、html DOM遍历和修改；
@@ -17,12 +17,12 @@
     注意: 
         jQuery2.0版本以后不再支持IE678，如果需要支持IE678，就使用jQuery2.0以下的版本。
 
-三、jquery兼容问题
-    1、兼容IE678的写法
+###三、jquery兼容问题
+
+    1、兼容IE678的写法 
     <!--[if lt IE 9]>
         <script src="./jquery-1.8.3.js"></script>
     <![endif]-->
-
 
     2.IE9以上的写法
     <!--[if gte IE 9]>
