@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>datePicker</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="./datePicker.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            padding: 0 20px;
+        }
+
+        .date_box {
+            width: 100%;
+            height: 35px;
+            box-sizing: border-box;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .date_box input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            border: 1px dashed #ccc;
+            border-radius: 5px;
+            padding-left: 8px;
+            box-sizing: border-box;
+        }
+
+        .date_box i {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            width: 22px;
+            height: 22.5px;
+            margin-top: -11.5px;
+            background: url('./images/r2.png') no-repeat;
+            background-size: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 点击输入框的时选择日期-->
+    <div class="date_box">
+        <input id="demo" readonly placeholder="选择日期">
+    </div>
+
+
+    <!-- 点击图标字体选择日期 -->
+    <div class="date_box">
+        <input id="demo2" readonly placeholder="选择日期">
+        <i id="date"></i>
+    </div>
+
+    <script>
+        // 点击输入框选择日期
+        var calendar = new datePicker();
+        calendar.init({
+            'trigger': '#demo', /*按钮选择器，用于触发弹出插件*/
+            'type': 'date',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
+            'minDate': '1900-1-1',/*最小日期*/
+            'maxDate': '2100-12-31',/*最大日期*/
+            'onSubmit': function () { /*确认时触发事件*/
+                var theSelectData = calendar.value;
+            },
+            'onClose': function () { /*取消时触发事件*/ }
+        });
+
+        // 点击icon图标显示日期
+        // calendar.init({
+        //     'trigger': '#date', /*按钮选择器，用于触发弹出插件*/
+        //     'type': 'date',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
+        //     'minDate': '1900-1-1',/*最小日期*/
+        //     'maxDate': '2100-12-31',/*最大日期*/
+        //     'onSubmit': function () { /*确认时触发事件*/
+        //         var theSelectData = calendar.value;
+        //         document.getElementById("demo2").value = theSelectData;
+        //     },
+        //     'onClose': function () { /*取消时触发事件*/ }
+        // });
+    </script>
+</body>
+
+</html>

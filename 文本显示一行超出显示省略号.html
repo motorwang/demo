@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+div {
+    width: 500px;
+    background-color: skyblue;
+    border: 1px solid #111;
+}
+
+.p_text {
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    background-color: #ccc;
+
+    /*以下三行代码可以实现超出显示省略号*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.p2 {
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    background-color: #ccc;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+    </style>
+</head>
+
+<body>
+
+<div>
+    <!-- 文本超出显示省略号 -->
+    <p class="p_text">
+        文本显示一行,超出显示省略号。文本显示一行,超出显示省略号。文本显示一行,超出显示省略号。文本显示一行,超出显示省略号。文本显示一行,超出显示省略号。文本显示一行,超出显示省略号。文本显示一行,超出显示省略号。文本显示一行,超出显示省略号。文本显示一行,超出显示省略号。文本显示一行,超出显示省略号。文本显示一行,超出显示省略号。文本显示一行,超出显示省略号。文本显示一行,超出显示省略号。文本显示一行,超出显示省略号。文本显示一行,超出显示省略号。文本显示一行,超出显示省略号。
+    </p>
+
+    <!-- 指定文本显示几行,超出显示省略号 -->
+    <!-- <p class="p2">
+        指定文本显示几行,超出显示省略号。指定文本显示几行,超出显示省略号。指定文本显示几行,超出显示省略号。指定文本显示几行,超出显示省略号。指定文本显示几行,超出显示省略号。指定文本显示几行,超出显示省略号。指定文本显示几行,超出显示省略号。指定文本显示几行,超出显示省略号。指定文本显示几行,超出显示省略号。指定文本显示几行,超出显示省略号。指定文本显示几行,超出显示省略号。指定文本显示几行,超出显示省略号。
+    </p> -->
+</div>
+
+
+</body>
+
+</html>

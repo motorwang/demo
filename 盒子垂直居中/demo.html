@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>盒子垂直居中对齐</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        div {
+            width: 400px;
+            height: 300px;
+            background-color: pink;
+            margin: 10px auto;
+        }
+
+        .item {
+            width: 200px;
+            height: 100px;
+            background-color: #daa234;
+            margin: 0;
+        }
+
+        /* 方式1 position 和 负的 margin 实现, 盒子宽高固定*/
+        .box1 {
+            position: relative;
+        }
+
+        .box1 div {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left: -100px;
+        }
+
+        /* 方式2 position 和 tranform 实现,  适用于盒子宽高不固定 */
+        .box2 {
+            position: relative;
+        }
+
+        .box2 div {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* 方式3 display: table-cell; 实现, 父盒子在水平位置, 设置margin无效*/
+        header {
+            width: 400px;
+            margin: 0 auto;
+        }
+        .box3 {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .box3 div {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        /* 方式4 (父盒子 display: flex; align-items: center; justify-content: center;) */
+        .box4 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 方式5 (父盒子 display: flex;)  (子盒子 margin: auto;)*/
+        .box5 {
+            display: flex;
+        }
+
+        .box5 div {
+            margin: auto;
+        }
+
+        /* 方式6  position 和 margin: auto; 实现 */
+        .box6 {
+            position: relative;
+        }
+
+        .box6 div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="box1">
+        <div class="item">box1</div>
+    </div>
+    <div class="box2">
+        <div class="item">box2</div>
+    </div>
+    <header>
+        <div class="box3">
+            <div class="item">box3</div>
+        </div>
+    </header>
+
+    <div class="box4">
+        <div class="item">box4</div>
+    </div>
+    <div class="box5">
+        <div class="item">box5</div>
+    </div>  
+
+    <div class="box6">
+        <div class="item">box6</div>
+    </div>
+</body>
+
+</html>

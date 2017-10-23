@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery-Demo</title>
+    <style>
+        html,
+        body,
+        p,
+        ul,
+        li {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            padding: 10px 0;
+        }
+
+        li {
+            border: 1px solid #000;
+        }
+
+        .demo {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            position: relative;
+            margin-left: 30px;
+        }
+
+        .demo2 {
+            width: 100px;
+            height: 100px;
+            background-color: #daa520;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left: -50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box"></div>
+    <div class="box"></div>
+    <p>jquery有着强大的选择器</p>
+    <input type="text" name="" value="">
+
+    <ul>
+        <li>原生li标签1</li>
+        <li>原生li标签2</li>
+        <li>原生li标签3</li>
+        <li>原生li标签4</li>
+        <li>原生li标签5</li>
+        <li>原生li标签6</li>
+    </ul>
+
+
+    <!--[if lt IE 9]>
+        <script src="./libs/jquery-1.8.3.js"></script>
+    <![endif]-->
+
+
+    <!--[if gte IE 9]>
+        <script src="./libs/jquery-3.2.1.js"></script>
+    <![endif]-->
+    <script src="./libs/jquery-1.8.3.js"></script>
+
+    <script>
+        $(function () {
+            // jquery选择器
+            console.log($("#box"));
+            console.log($(".box"));
+            console.log($("p"));
+
+            // 属性选择器
+            // console.log($("input[type=text]"));
+            // $("input[type=text]").val("jQuery属性选择器");
+
+            // 奇偶选择器  odd->奇数   even->偶数 , 奇偶选择器只是选择奇数或者偶数位置的选择器
+            $("li:odd").css("background", "pink");
+            $("li:even").css("background", "skyblue");
+            // $('li:first').css("color", "green");
+            // $("li:odd").css("color", "skyblue");
+            // $("li:even").css("color", "pink");
+
+            //合起来写
+            // $("li:odd").css({ "background": "pink", "color": "#daa" });
+            // $("li:even").css({ "background": "skyblue", "color": "#daa" });
+        })
+    </script>
+
+
+    <!-- =============================================================================== -->
+    <div class="demo">
+        <div class="demo2"></div>
+    </div>
+    <input type="text" class="input" name="" value="">
+    <script>
+        // jquery事件, 
+        // 鼠标事件: 鼠标进入事件, 鼠标离开, 鼠标单击事件, 鼠标双击事件
+        // 键盘事件: 键盘按下事件, 键盘弹起事件, onpress事件
+        // 表单事件: submit, change事件, focus, blur
+        // 文档/窗口事件
+
+        // 鼠标事件
+        function mouse() {
+            $('.demo').mouseenter(function () {
+                // console.log("鼠标进入demo盒子");
+            });
+            $('.demo').mouseleave(function () {
+                // console.log("鼠标离开盒子");
+            });
+
+            $(".demo2").click(function () {
+                console.log("点击事件触发");
+            });
+            $(".demo2").dblclick(function () {
+                console.log('双击事件触发');
+            });
+            $(".demo").hover(function () {
+                console.log("鼠标悬停在盒子上");
+            });
+        }
+        // mouse();
+
+
+        // 键盘事件
+        function key() {
+            $(".input").keydown(function () {
+                console.log("键盘按下");
+            });
+            $(".input").keyup(function () {
+                console.log("键盘弹起");
+            })
+            $(".input").keypress(function () {
+                console.log("keypress事件触发");
+            })
+        }
+        // key();
+
+
+        // 表单事件
+        function form() {
+            $(".input").focus(function () {
+                console.log("获取焦点");
+            });
+            $(".input").blur(function () {
+                // console.log("失去焦点");
+            });
+            $(".input").change(function () {
+                console.log($(this).val());
+            });
+        }
+        // form();
+
+        // oninput事件: 输入框一边输入一边校验, 有兼容性
+
+        $('.input').on("input", function () { // 主流浏览器
+            console.log($(this).val());
+        });
+
+        $('.input').on('propertychange', function () {// 在IE下,   是 onpropertychange
+            console.log($(this).val());
+        })
+
+    </script>
+
+
+</body>
+
+</html>

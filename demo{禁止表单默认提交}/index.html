@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+    <form>
+        用户名: <input type="text" name="userName"></br>
+        密&nbsp;&nbsp;码: <input type="text" name="userPwd"></br>
+        <input type="submit" name="" id="submit" value="提交">
+    </form>
+
+    <script>
+        // 禁止表单默认提交事件
+        var submit = document.getElementById("submit");
+        // submit.onclick = function (event) {
+        //     console.log(event.preventDefault());    
+        //     return false;
+        // }
+
+        submit.onclick = function (event) {
+            var event = event || window.event; 
+            event.preventDefault();  // 支持标准浏览器
+            window.event.preventDefault = false;  //支持IE 678      
+        }
+
+    </script>
+    
+</body>
+</html>
