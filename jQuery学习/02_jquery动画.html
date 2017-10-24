@@ -12,6 +12,7 @@
             padding: 0;
             margin: 0;
         }
+
         html {
             height: 3000px
         }
@@ -136,15 +137,18 @@
 
 
     <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- jquery animate动画 -->
+    <!-- 2. jquery animate动画 -->
     <style>
-        .start, .end {
+        .start,
+        .end {
             padding: 5px;
             margin-top: 20px;
         }
+
         .start {
-            margin-left: 50px;   
+            margin-left: 50px;
         }
+
         .box4 {
             width: 100px;
             height: 100px;
@@ -159,14 +163,47 @@
 
     <script>
         $('.start').on("click", function () {
-            $('.box4').animate( {width: '200px', height: '200px', top: '200px', left: '200px'}, 'slow');
+            $('.box4').animate({ width: '200px', height: '200px', top: '200px', left: '200px' }, 'slow');
         });
         $('.end').on("click", function () {
             $('.box4').stop(); //停止动画
         });
-
     </script>
 
+
+    <!-- 3. jQuery callback -->
+    <hr>
+    <button class="click" type="">点击隐藏</button>
+    <p class="p1">测试jquery回调函数</p>
+
+    <script>
+        // $('.click').on('click', function () {
+        //     $('.p1').hide('slow', function () {
+        //         alert("xiaoshi");//p标签隐藏之后执行
+        //     });
+        // });
+
+        $('.click').on('click', function () {
+            $('.p1').hide();
+            alert('xiaoshi');// p标签隐藏之前执行
+        })
+    </script>
+
+
+    <!-- 4. jQuery特点: 链式编程, 隐式迭代 
+        注意: 在什么时候破坏了链,例如: $('.box').html().text();这时候就破坏了链式结构.
+        隐式迭代: 遍历所有的获取到的元素
+    -->
+    <hr style="margin-top: 30px">
+    <button class="click2" type="">点击隐藏</button>
+    <p class="p2">测试jquery回调函数</p>
+    <script>
+        $('.click2').on('click', function () {
+            $('.p2').css({ "background": "pink", "padding": "10px 0" }).fadeOut(2000).slideDown(2000);
+            // $('.p2').html().text(); //破坏链式结构
+            // $('.p2').html("").val(''); //没有破坏链式结构
+        });
+    </script>
 
 </body>
 

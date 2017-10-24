@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tab栏切换</title>
+    <script src="./libs/jquery-1.8.3.js"></script>
+    <style>
+        html,
+        body,
+        ul,
+        li,
+        header {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        header {
+            width: 100%;
+            height: 45px;
+            background-color: #06c;
+            color: #fff;
+            text-align: center;
+            line-height: 45px;
+        }
+
+        .tab {
+            width: 100%;
+        }
+
+        ul {
+            width: 100%;
+            height: 40px;
+            border-bottom: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .tab li {
+            width: 33.3333333%;
+            float: left;
+            height: 100%;
+            line-height: 40px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .current {
+            color: #06c;
+            border-bottom: 2px solid #06c;
+        }
+
+        .tab1 {
+            width: 100%;
+        }
+
+        .sec {
+            width: 100%;
+            height: 100%;
+        }
+
+        section div {
+            display: none;
+        }
+
+        .current2 {
+            display: block;
+            color: #06c;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>xxx系统</header>
+
+    <!-- tab栏切换 -->
+    <section class="tab">
+        <ul>
+            <li class="current">新闻</li>
+            <li>体育</li>
+            <li>娱乐</li>
+        </ul>
+    </section>
+    <!-- 对应tab栏切换的下边的内容 -->
+    <section class="sec">
+        <div class="current2">新闻区</div>
+        <div>体育区</div>
+        <div>娱乐区</div>
+    </section>
+
+    <script>
+        $('.tab li').click(function () {
+            $(this).addClass('current').siblings('li').removeClass("current");
+            var index = $(this).index();
+            $('.sec div').eq(index).addClass('current2').siblings('div').removeClass('current2');
+        })
+    </script>
+
+</body>
+
+</html>
