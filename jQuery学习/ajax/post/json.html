@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>解析数据</title>
+    <style>
+        button {
+            border: none;
+            outline-style: none;
+            color: #fff;
+            background-color: #06c;
+            padding: 6px 10px;
+            border-radius: 3px;
+        }
+
+        td {
+            padding: 3px 5px;
+        }
+        .name {
+            width: 100px;
+        }
+        .age {
+            width: 50px;
+        }
+        .tbody td {
+            text-align: left;
+        }
+
+    </style>
+</head>
+
+<body>
+    <button class="btn" type="">查询</button>
+    <table>
+        <tr>
+            <td class="name">姓名</td>
+            <td class="age">年龄</td>
+            <td>描述</td>
+            <td>照片</td>
+        </tr>
+        <tbody class="tbody">
+
+        </tbody>
+    </table>
+
+    <script>
+        //
+        document.querySelector('.btn').onclick = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('get', 'json.php');
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var data = xhr.responseText;
+                    // console.log(data);
+                    var obj = JSON.parse(data);
+                    // console.log(obj);
+                    var arr = [];
+                    for (var i = 0; i < obj.length; i++) {
+                        var tr = '<tr>' +
+                            '<td>' + obj[i].p_name + '</td>' +
+                            '<td>' + obj[i].p_age + '</td>' +
+                            '<td>' + obj[i].p_des + '</td>' +
+                            '<td><img src="' + obj[i].p_img + '" alt=""></td>' +
+                            '</tr>';
+                        arr.push(tr);
+                    }
+                    document.querySelector('.tbody').innerHTML = arr.join('');
+                }
+            }
+
+            xhr.send();
+
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>douban</title>
+    <script src="./jquery-3.2.1.min.js"></script>
+    <style>
+        button {
+            border: none;
+            outline-style: none;
+            background-color: #06c;
+            padding: 5px 10px;
+            color: #fff;
+
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn" type="">搜索</button>
+    <p></p>
+
+    <script>
+        $('.btn').on('click', function () {
+            // //js发送ajax请求
+            //创建对象
+            var xhr = new XMLHttpRequest();
+
+            //打开连接
+            xhr.open('get', 'test.txt');
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status) {
+                    var data = xhr.responseText;
+                    console.log(data);
+                    // console.dir(data);
+                    $('p').text(data);
+                }
+            }
+
+            //发送请求
+            xhr.send();
+
+
+            // 使用jq 的 ajax请求
+            // $.ajax({
+            //     url: 'test.txt',
+            //     data: {},
+            //     type: 'get',
+            //     // dataType: 'json',// 服务器返回的的数据类型
+            //     success: function (data) {
+            //         console.log(data);
+            //     },
+            //     error: function (err) {
+            //         console.log(err);
+            //     }
+            // });
+
+
+
+
+        })
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

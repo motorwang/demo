@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>隔行变色</title>
+    <style>
+        html,
+        body,
+        div,
+        ul,
+        li {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        ul {
+            padding: 10px;
+        }
+        ul li {
+            margin: 5px 0;
+            /* color: lightblue; */
+            user-select: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>北国风光，千里冰封，万里雪飘。 </li>
+            <li>望长城内外，惟余莽莽；大河上下，顿失滔滔。</li>
+            <li>山舞银蛇，原驰蜡象，欲与天公试比高。 </li>
+            <li>须晴日，看红装素裹，分外妖娆。 </li>
+            <li>江山如此多娇，引无数英雄竞折腰。 </li>
+            <li>惜秦皇汉武，略输文采；唐宗宋祖，稍逊风骚。</li>
+        </ul>
+    </div>
+
+    <script src="../libs/jquery-1.8.3.js"></script>
+    <script>
+        // $('li:odd').css({"background":"skyblue"});
+        // $('li:even').css({ "background":"lightblue" });
+        // $('li').hover(function () {
+        //     $(this).css({"color": "#fff"}).siblings("li").css({"color": "#000"});
+        // })
+        $('li').hover(function () {
+            $(this).css({ "background": "lightblue", "color": "#fff" }).siblings("li").css({"background": "#fff", "color": "#000"});
+        })
+    </script>
+
+    <!-- <script src="./libs/qc_loader.js"></script> -->
+
+</body>
+
+</html>
